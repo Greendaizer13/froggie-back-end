@@ -1,6 +1,7 @@
 import express from 'express';
 import * as bodyParser from 'body-parser';
 import {Controller} from "./controllers/controller.interface";
+const cors = require('cors');
 
 class App {
     public app: express.Application;
@@ -20,6 +21,7 @@ class App {
 
     private initializeControllers(controllers : Controller[]) {
         controllers.forEach((controller) => {
+            this.app.use(cors());
             this.app.use('/', controller.router);
         });
     }
