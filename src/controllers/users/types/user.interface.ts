@@ -8,5 +8,5 @@ export interface User {
         country?: string,
         city?: string
     },
-    followedUsers?: number[],
+    followedUsers: number[],
 }
